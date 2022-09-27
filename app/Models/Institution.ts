@@ -1,44 +1,44 @@
-import { DateTime } from 'luxon'
-import { BaseModel, belongsTo, BelongsTo, column } from '@ioc:Adonis/Lucid/Orm'
-import User from './User'
-import Post from './Post'
-import Contact from './Contact'
+import { DateTime } from "luxon";
+import { BaseModel, belongsTo, BelongsTo, column } from "@ioc:Adonis/Lucid/Orm";
+import User from "./User";
+import Post from "./Post";
+import Contact from "./Contact";
 
 export default class Institution extends BaseModel {
   @column({ isPrimary: true })
-  public id: string
+  public id: string;
 
   @column()
-  public name: string
+  public name: string;
 
   @column()
-  public description: string
+  public description: string;
 
   @column()
-  public image: string
+  public image: string;
 
   @column()
-  public contact: string
+  public contactId: string;
 
   @column({})
-  public admins: User[]
+  public admins: User[];
 
   @column({})
-  public members: User[]
+  public members: User[];
 
   @column({})
-  public requests: User[]
+  public requests: User[];
 
   @column({})
-  public posts: Post[]
+  public posts: Post[];
 
   @column.dateTime({ autoCreate: true })
-  public createdAt: DateTime
+  public createdAt: DateTime;
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  public updatedAt: DateTime
+  public updatedAt: DateTime;
 
   // Setting Contact foreign Key
   @belongsTo(() => Contact)
-  public contacts: BelongsTo<typeof Contact>
+  public contacts: BelongsTo<typeof Contact>;
 }

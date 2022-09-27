@@ -18,21 +18,18 @@
 |
 */
 
-import Route from '@ioc:Adonis/Core/Route'
+import Route from "@ioc:Adonis/Core/Route";
 
 Route.group(() => {
+  Route.group(() => {
+    Route.post("/institution", "InstitutionsController.create");
+    Route.get("/institution", "InstitutionsController.index");
+    Route.get("/institution/:id", "InstitutionsController.show");
+    Route.patch("/institution/:id", "InstitutionsController.update");
+    Route.delete("/institution/:id", "InstitutionsController.destroy");
+  }).middleware("auth");
 
-    Route.group(() => {
-        Route.post('/institution', 'TodosController.create')
-        Route.get('/institution', 'TodosController.index')
-        Route.get('/institution/:id', 'TodosController.show')
-        Route.patch('/institution/:id', 'TodosController.update')
-        Route.delete('/institution/:id', 'TodosController.destroy')
-    }).middleware('auth')
-
-    Route.get('/', 'TestsController.index')
-    Route.post('/register', 'AuthController.index')
-    Route.post('/login', 'AuthController.login')
-
-  
-  }).prefix('api')
+  Route.get("/", "TestsController.index");
+  Route.post("/register", "AuthController.register");
+  Route.post("/login", "AuthController.login");
+}).prefix("api");
