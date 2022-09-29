@@ -22,6 +22,9 @@ export default class Post extends BaseModel {
   @column()
   public likes: number;
 
+  @column()
+  public isApproved: boolean;
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime;
 

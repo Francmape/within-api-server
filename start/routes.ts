@@ -32,4 +32,7 @@ Route.group(() => {
   Route.get("/", "TestsController.index");
   Route.post("/register", "AuthController.register");
   Route.post("/login", "AuthController.login");
+  Route.get("/register/confirm/:token", "AuthController.confirmEmail");
+  Route.post("/reset", "AuthController.resetPassword");
+  Route.post("/password-change/:token", "AuthController.changePassword");
 }).prefix("api");

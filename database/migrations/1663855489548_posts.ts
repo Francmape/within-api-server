@@ -16,6 +16,7 @@ export default class extends BaseSchema {
         .inTable("users")
         .onDelete("CASCADE");
       table.integer("likes", 255).nullable();
+      table.boolean("is_approved").defaultTo(false)
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
